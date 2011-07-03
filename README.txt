@@ -12,9 +12,8 @@ requirements.
 flacsplit.py
 ------------
 
-Splits and a single-file album into songs, according to a cue
-file. The files are named according to song titles, and tagged
-appropriately.
+Splits a single-file album into songs, according to a cue file. The
+files are named according to song titles, and tagged appropriately.
 
 The default is to output best-quality flac, but it should be simple to
 change this.
