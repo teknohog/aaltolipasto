@@ -3,7 +3,8 @@ primarily flac, for unix command line
 
 by Risto A. Paju / teknohog
 
-aalto = wave, lipasto = drawer. The name is also a pun in Finnish.
+aalto = wave, lipasto = drawer (the kind where you store things).
+The name is also a pun in Finnish.
 
 See the scripts themselves for detailed documentation and
 requirements.
