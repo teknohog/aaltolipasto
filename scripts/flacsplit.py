@@ -131,6 +131,11 @@ def FindFirst(ext):
         if re.match(pattern, item, re.I):
             return item
 
+    # A sensible fallback is needed for the os.path.isfile test; null
+    # does not work
+    return ""
+
+
 # new, flexible cmdline input :)
 parser = OptionParser()
 
@@ -140,7 +145,9 @@ Splits a lossless audio file into individual tracks according to the
 cue file. The track files are tagged and renamed accordingly."""
 
 parser.add_option("-a", "--auto", dest="autofind", action="store_true", default=False, help="Try to find cue and audio files in the current dir, and use the first ones")
-parser.add_option("-c", "--cuefile", dest="cuefile", help="Cue file")
+
+# A sensible default is needed for the os.path.isfile test; null does not work
+parser.add_option("-c", "--cuefile", dest="cuefile", default="", help="Cue file")
 
 parser.add_option("-n", "--nosplit", dest="nosplit", action="store_true", default=False, help="Do not perform the audio split. Useful if the cuefile has missing tags and you end up with " + temp_prefix + "NN." + ext + " files. You can fix the cuefile and run this again with nosplit, to tag and rename these files (which is much faster than a complete split).")
 
