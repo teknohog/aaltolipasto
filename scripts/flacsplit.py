@@ -209,6 +209,11 @@ artists = CueFind(cue, "PERFORMER", False)
 
 titles = CueFind(cue, "TITLE", False)
 
+# A lot of cue files have only one PERFORMER field. In that case, fill
+# the rest by copying the first.
+if len(artists) < len(titles):
+    artists += artists[0:1] * (len(titles) - len(artists))
+
 album = titles[0]
 
 # characters changed/removed in filename
