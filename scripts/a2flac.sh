@@ -52,9 +52,10 @@ for infile in "$@"; do
 
     # mplayer does most codecs well. exceptions can be dealt with here.
     case $ext in
-	ape|APE)
-	    nice -n$nice mac $infile $pipe -d &
-	    ;;
+	# mplayer's ffape now handles this better
+	#ape|APE)
+	#    nice -n$nice mac $infile $pipe -d &
+	#    ;;
 	shn|SHN)
 	    nice -n$nice shncat $infile > $pipe &
 	    ;;
