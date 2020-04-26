@@ -238,20 +238,20 @@ for trackno in range(1, len(titles)):
 
     # convert to constant length string
     if trackno < 10:
-        trackno = "0" + `trackno`
+        trackno = "0" + str(trackno)
     else:
-        trackno = `trackno`
+        trackno = str(trackno)
 
     # copy template into variable, then replace %tags by their
     # contents one at a time
     
     for variable in ["filename", "metadata_cmdline", "tempoutfile"]:
-        exec variable + " = " + variable + "_template"
+        exec(variable + " = " + variable + "_template")
         
         for tag in tags:
             tag_content = eval(tag)
             tag_marker = "%" + tag
-            exec variable + " = " + variable + ".replace(tag_marker, tag_content)"
+            exec(variable + " = " + variable + ".replace(tag_marker, tag_content)")
 
     # clean up filename
     for key in transtable.keys():
